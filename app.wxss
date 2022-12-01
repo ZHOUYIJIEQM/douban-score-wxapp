@@ -1,3 +1,0 @@
-view, swiper, swiper-item, scroll-view{
-  box-sizing: border-box;
-}
