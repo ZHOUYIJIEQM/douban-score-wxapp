@@ -2,6 +2,23 @@
 // 获取应用实例
 const app = getApp<IAppOption>()
 const { get } = require("../../utils/request");
+const hotShow = require('../../mock/hotShow')
+const hotMovie = require('../../mock/hotMovie')
+const hotTvShow = require('../../mock/hotTvShow')
+const hotBook = require('../../mock/hotBook')
+const hotMusic = require('../../mock/hotMusic')
+
+const getData = (list: any) => {
+  return list.map((i: any) => {
+    return {
+      id: i.id,
+      name: i.name,
+      score: i.score.num,
+      movieImage: i.movieImage,
+      title: i.title
+    }
+  })
+}
 
 Page({
   data: {
@@ -12,7 +29,14 @@ Page({
     hotMusic: [],
   },
   async onLoad() {
-    await this.initData()
+    this.setData({
+      hotShow: getData(hotShow.list),
+      hotMovie: getData(hotMovie.list),
+      hotTvShow: getData(hotTvShow.list),
+      hotBook: getData(hotBook.list),
+      hotMusic: getData(hotMusic.list)
+    })
+    // await this.initData()
   },
   /**
    * 获取初始数据
