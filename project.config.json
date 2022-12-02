@@ -4,6 +4,8 @@
     "ignore": [],
     "include": []
   },
+  "ignoreDevUnusedFiles": false,
+  "ignoreUploadUnusedFiles": false,
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
   "projectname": "ts-sass-demo",
@@ -16,7 +18,9 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    }
+    },
+    "minified": true,
+    "ignoreUploadUnusedFiles": false
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},

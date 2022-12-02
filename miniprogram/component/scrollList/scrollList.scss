@@ -1,0 +1,73 @@
+/* component/scrollList/scrollList.wxss */
+.scroll-box {
+  min-height: 340rpx;
+  .topbar {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 30rpx 20rpx;
+    .type-name {
+      font-size: 36rpx;
+      font-weight: bold;
+    }
+    .more {
+      margin-left: auto;
+    }
+    .more, .iconfont {
+      color: #05b512;
+    }
+    .iconfont {
+      font-size: 24rpx;
+      margin-left: 8rpx;
+    }
+  }
+  .scroll-content {
+    white-space: nowrap; 
+    width: 100%;
+    .scroll-item {
+      margin-left: 20rpx;
+      display: inline-block;
+      font-size: 0;
+      width: 170rpx;
+      overflow: hidden;
+      &:last-child {
+        margin-right: 20rpx;
+      }
+
+      .movie-img {
+        width: 100%;
+        height: 228rpx;
+        border-radius: 10rpx;
+      }
+
+      .text-box {
+        font-size: 32rpx;
+        .movie-name {
+          width: 100%;
+          font-size: 26rpx;
+          font-weight: bold;
+          margin-top: 12rpx;
+        }
+      }
+      .score-box {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        image {
+          // 加载完会闪一下, 从大图片变成小图片。高度直接设置为0, 因为widthFix, 它会自动撑高
+          height: 0rpx;
+          width: 24rpx !important;
+        }
+        view {
+          flex: 1;
+        }
+        text {
+          padding: 0 10rpx;
+          font-size: 26rpx;
+          color: #818181;
+        }
+      }
+    }
+  }
+
+}

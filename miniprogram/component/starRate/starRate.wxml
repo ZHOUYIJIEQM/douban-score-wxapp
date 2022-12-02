@@ -1,0 +1,17 @@
+<!--component/starRate/starRate.wxml-->
+<view class='ratingbar-stars'>
+  <!--数组长度为5，共5次循环显示5颗星星-->
+  <block
+    wx:for="{{5}}"
+    wx:for-item="item"
+    wx:key="item"
+    wx:for-index="index"
+  >
+    <!--全黄星星-->
+    <image class="img" mode="widthFix" wx:if="{{index < starOn}}" src='../../assets/star/starOn.png' />
+    <!--半黄半灰星星-->
+    <image class="img" mode="widthFix" wx:elif="{{index < starHalf}}" src='../../assets/star/halfStar.png' />
+    <!--全灰星星-->
+    <image class="img" mode="widthFix" wx:else src='../../assets/star/starOff.png' />
+  </block>
+</view>

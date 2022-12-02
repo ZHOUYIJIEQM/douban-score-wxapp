@@ -1,23 +1,29 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="container-page">
+  <view class="custom-navigation">
+    <text>首页</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="search-box">
+    <view class="inner-box">
+      <text class="iconfont icon-sousuo"></text>
+      <text>搜索</text>
+    </view>
+  </view>
+  <view class="container">
+    <view class="cont-item">
+      <scrollList typeName="影院热映" listArr="{{hotShow}}"></scrollList>
+    </view>
+    <view class="cont-item">
+      <scrollList typeName="豆瓣热门" listArr="{{hotMovie}}"></scrollList>
+    </view>
+    <view class="cont-item">
+      <scrollList typeName="近期热门综艺节目" listArr="{{hotTvShow}}"></scrollList>
+    </view>
+    <view class="cont-item">
+      <scrollList typeName="畅销图书" listArr="{{hotBook}}"></scrollList>
+    </view>
+    <view class="cont-item">
+      <scrollList typeName="热门单曲榜" listArr="{{hotMusic}}"></scrollList>
+    </view>
   </view>
 </view>

@@ -1,0 +1,34 @@
+<!--component/scrollList/scrollList.wxml-->
+<view class="scroll-box">
+  <view class="topbar">
+    <text class="type-name">{{typeName}}</text>
+    <text class="more">查看更多</text>
+    <text class="iconfont icon-xiangyou"></text>
+  </view>
+  <scroll-view 
+    class="scroll-content"
+    scroll-x="true"
+  >
+    <view 
+      class="scroll-item"
+      wx:for="{{listArr}}"
+      wx:for-index="index" 
+      wx:for-item="item"
+      wx:key="index"
+    >
+      <image
+        class="movie-img"
+        src="{{item.movieImage}}"
+        mode="widthFix"
+        lazy-load="true"
+      />
+      <view class="text-box">
+        <view class="movie-name eli">{{item.name}}</view>
+        <view class="score-box">
+          <view><starRate star="{{item.score}}"></starRate></view>
+          <text>{{item.score}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

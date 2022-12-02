@@ -1,0 +1,78 @@
+<!--pages/mine/index.wxml-->
+<view class="mine-page">
+  <view class="top">
+    <button class="login-btn">登录</button>
+  </view>
+  <view class="mine-info">
+    <view class="title-box">
+      <text class="title-text">我的书影音</text>
+      <text class="login">登录查看</text>
+      <text class="iconfont icon-xiangyou"></text>
+    </view>
+    <view class="item-box">
+      <image mode="widthFix" src="../../assets/mine/watch.png" />
+      <view class="cont">
+        <view class="top-analyze">观影分析</view>
+        <view class="bottom">
+          <view class="watched">
+            <text>0</text>
+            <text>看过</text>
+          </view>
+          <view class="flag">
+            <view>标记10部影片</view>
+            <view>开启观影分析</view>
+          </view>
+          <view class="open">
+            <button>立即开启</button>
+          </view>
+          <text class="iconfont icon-xiangyou"></text>
+        </view>
+      </view>
+    </view>
+    <view class="item-box">
+      <image mode="widthFix" src="../../assets/mine/book.png" />
+      <view class="cont">
+        <view class="top-analyze">读书分析</view>
+        <view class="bottom">
+          <view class="watched">
+            <text>0</text>
+            <text>读过</text>
+          </view>
+          <view class="flag">
+            <view>标记10本书</view>
+            <view>开启读书分析</view>
+          </view>
+          <view class="open">
+            <button>立即开启</button>
+          </view>
+          <text class="iconfont icon-xiangyou"></text>
+        </view>
+      </view>
+    </view>
+    <view class="item-box">
+      <image mode="widthFix" src="../../assets/mine/music.png" />
+      <view class="cont">
+        <view class="top-analyze">观影分析</view>
+        <view class="bottom">
+          <view class="watched">
+            <text>0</text>
+            <text>听过</text>
+          </view>
+          <view class="flag">
+            <view>标记10张唱片</view>
+            <view>开启音乐分析</view>
+          </view>
+          <view class="open">
+            <button>立即开启</button>
+          </view>
+          <text class="iconfont icon-xiangyou"></text>
+        </view>
+      </view>
+    </view>
+    <view class="about-box">
+      <view class="title">关于</view>
+      <view class="item">用户协议</view>
+      <view class="item">隐私政策</view>
+    </view>
+  </view>
+</view>

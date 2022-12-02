@@ -1,14 +1,43 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/topList/index",
+    "pages/mine/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "豆瓣评分",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color": "#767678",
+    "selectedColor": "#368644",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/homeOff.png",
+        "selectedIconPath": "images/homeOn.png"
+      },
+      {
+        "text": "榜单",
+        "pagePath": "pages/topList/index",
+        "iconPath": "images/topListOff.png",
+        "selectedIconPath": "images/topListOn.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/index",
+        "iconPath": "images/mineOff.png",
+        "selectedIconPath": "images/mineOn.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

@@ -1,19 +1,46 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
-}
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
+$navigationH: 150rpx;
+.container-page {
+  .custom-navigation {
+    z-index: 1001;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $navigationH;
+    background-color: #42bd56;
+    text {
+      color: #fff;
+      position: absolute;
+      bottom: 20rpx;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+  }
+  .search-box {
+    margin-top: $navigationH;
+    background-color: #42bd56;
+    padding: 20rpx;
+    .inner-box {
+      &:active {
+        background: #f7f7f7;
+      }
+      padding: 14rpx;
+      background-color: #fff;
+      border-radius: 10rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #bfbfbf;
+      font-size: 26rpx;
+      .icon-sousuo {
+        margin-right: 6rpx;
+      }
+    }
+  }
+  .container {
+    .cont-item {
+      margin-bottom: 26rpx;
+    }
+  }  
 }

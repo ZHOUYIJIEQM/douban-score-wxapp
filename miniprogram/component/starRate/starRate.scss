@@ -1,0 +1,15 @@
+/* component/starRate/starRate.wxss */
+.ratingbar-stars {
+  display: flex;
+  flex-direction: row;
+  padding-right: 4rpx;
+}
+
+/* class="ratingbar-stars"的控件下所包含的image控件的样式 */
+.ratingbar-stars {
+  .img {
+    width: 20%;
+    padding-top: 5rpx;
+    padding-right: 1%
+  }
+}
