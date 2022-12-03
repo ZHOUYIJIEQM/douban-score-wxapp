@@ -116,8 +116,48 @@ Component({
   }
 })
 ```
-2. 组件传入参数
+2. 父子组件传参数
+给[子组件](https://developers.weixin.qq.com/miniprogram/dev/reference/api/Component.html)传参
+```ts
+// starRate 组件
+<starRate star="3" />
+<starRate star="{{item.score}}" />
 
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    // 1-10 分
+    // 接收的参数
+    star: {
+      type: Number,
+      default: 0,
+    }
+  },
+})
+```
+[给父组件传参](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html)
+```ts
+Component({
+  methods: {
+    scrollHandler(event: any) {
+      // 滚动触底触发
+      if ( event.detail.scrollTop + this.data.pageHeight + 50 >= event.detail.scrollHeight ) {
+        console.log('load');
+        // this.triggerEvent(自定义事件, 提供给事件的参数)
+        this.triggerEvent("loadData", event.detail);
+      }
+    },
+  },
+})
+```
 
-
+## [获取元素信息](https://developers.weixin.qq.com/miniprogram/dev/api/wxml/SelectorQuery.html), 在组件使用时要加载```.in(this)```, [表示将选择器的选取范围更改为自定义组件 component 内](https://developers.weixin.qq.com/miniprogram/dev/api/wxml/SelectorQuery.in.html)
+```ts
+// 在 page 使用
+wx.createSelectorQuery().select('.scroll-page')
+// 在 component 使用
+wx.createSelectorQuery().in(this).select('.scroll-page')
+```
 

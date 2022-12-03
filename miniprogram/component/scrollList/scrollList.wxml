@@ -25,7 +25,7 @@
       <view class="text-box">
         <view class="movie-name eli">{{item.name}}</view>
         <view class="score-box">
-          <view><starRate star="{{item.score}}"></starRate></view>
+          <view><starRate star="{{item.score}}" /></view>
           <text>{{item.score}}</text>
         </view>
       </view>

@@ -1,4 +1,7 @@
 {
-  "navigationBarTitleText": "榜单",
-  "usingComponents": {}
+  "navigationBarTitleText": "榜单Top250",
+  "usingComponents": {
+    "starRate": "../../component/starRate/starRate",
+    "scrollLoad": "../../component/scrollLoad/scrollLoad"
+  }
 }

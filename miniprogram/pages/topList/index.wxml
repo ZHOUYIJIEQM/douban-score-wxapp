@@ -1,2 +1,32 @@
-<!--pages/topList/index.wxml-->
-<text>pages/topList/index.wxml</text>
+<scrollLoad class="top250-page" bindloadData="scrollHandler">
+  <view 
+    class="top250-box"
+    wx:for="{{topList}}"
+    wx:key="index"
+  >
+    <view class="left">
+      <image
+        mode="widthFix" 
+        class="movie-img"
+        src="{{item.movieImage}}" 
+        lazy-load="true"
+      />
+    </view>
+    <view class="right" hover-class="box-hover">
+      <view class="m-name">
+        {{item.name}}
+      </view>
+      <view class="score-box">
+        <view>
+          <starRate star="{{item.score}}" />
+        </view>
+        <text>{{item.score}}</text>
+      </view>
+      <view class="title">
+        <text>{{item.title.type}} | </text>
+        <text>{{item.title.area}} | </text>
+        <text>{{item.title.time}}</text>
+      </view>
+    </view>
+  </view>
+</scrollLoad>

@@ -22,8 +22,8 @@
     ]
   },
   "include": [
-    "./**/*.ts"
-, "miniprogram/mock/top250.js"  ],
+    "./**/*.ts", "miniprogram/mock/top250.js"
+  ],
   "exclude": [
     "node_modules"
   ]

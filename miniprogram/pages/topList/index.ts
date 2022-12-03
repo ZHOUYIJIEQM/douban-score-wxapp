@@ -1,3 +1,9 @@
+const { getData } = require('../../utils/util')
+let topList = require('../../mock/top250')
+let tempList: any[] = []
+let pageHeight = 0
+let loading = false
+
 // pages/topList/index.ts
 Page({
 
@@ -5,14 +11,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    topList: [] as any
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
+    // 数据
+    wx.showLoading({
+      title: '加载中',
+    })
+    setTimeout(() => {
+      this.setData({
+        topList: tempList = getData(topList.list)
+      })
+      wx.hideLoading()
+      topList = []
+    }, 500)
+  },
+  
+  scrollHandler() {
+    if (!loading) {
+      loading = true
+      wx.showLoading({title: '加载中'})
+      setTimeout(() => {
+        this.setData({
+          topList: [...this.data.topList, ...tempList]
+        })
+        loading = false
+        wx.hideLoading()
+      }, 1000)
+    }
   },
 
   /**

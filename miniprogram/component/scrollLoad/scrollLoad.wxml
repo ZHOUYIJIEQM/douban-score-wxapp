@@ -1,0 +1,9 @@
+<!--component/scrollLoad/scrollLoad.wxml-->
+<!--滚动触底加载-->
+<scroll-view 
+  class="scroll-page"
+  scroll-y
+  bindscroll="scrollHandler"
+>
+  <slot />
+</scroll-view>
