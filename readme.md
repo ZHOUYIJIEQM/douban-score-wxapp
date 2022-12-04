@@ -5,7 +5,7 @@
 
 ## 图片预览
 ### 1. 首页
-<img style="width: 300px" src="./preImg/首页.jpg" />
+<img style="width: 300px; height: 300px; border-radius: 50%;" src="./preImg/首页.jpg" />
 <hr />
 
 ### 2. 榜单
