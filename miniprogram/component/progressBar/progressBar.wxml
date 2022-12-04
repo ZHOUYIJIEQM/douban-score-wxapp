@@ -1,0 +1,6 @@
+<view class="progress-box">
+  <view 
+    class="progress-inner"
+    style="width: {{styleObj.width}}; height: {{styleObj.height}}; background-color: {{styleObj.backgroundColor}};"
+  ></view>
+</view>

@@ -1,16 +1,7 @@
-<!--component/scrollList/scrollList.wxml-->
-<view class="scroll-box">
-  <view class="topbar">
-    <text class="type-name">{{typeName}}</text>
-    <text class="more" bindtap="goMore">查看更多</text>
-    <text class="iconfont icon-xiangyou" bindtap="goMore"></text>
-  </view>
-  <scroll-view 
-    class="scroll-content"
-    scroll-x="true"
-  >
+<scrollLoad bindloadData="scrollHandler">
+  <view class="more-movie-page">
     <view 
-      class="scroll-item"
+      class="movie-item"
       wx:for="{{listArr}}"
       wx:for-index="index" 
       wx:for-item="item"
@@ -32,5 +23,5 @@
         </view>
       </view>
     </view>
-  </scroll-view>
-</view>
+  </view>
+</scrollLoad>

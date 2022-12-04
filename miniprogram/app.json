@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/topList/index",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/movieDetail/index",
+    "pages/moreMovie/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

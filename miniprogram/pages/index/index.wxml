@@ -11,19 +11,19 @@
   </view>
   <view class="container">
     <view class="cont-item">
-      <scrollList typeName="影院热映" listArr="{{hotShow}}"></scrollList>
+      <scrollList typeName="影院热映" typeRoute="hotShow" listArr="{{hotShow}}"></scrollList>
     </view>
     <view class="cont-item">
-      <scrollList typeName="豆瓣热门" listArr="{{hotMovie}}"></scrollList>
+      <scrollList typeName="豆瓣热门" typeRoute="hotMovie" listArr="{{hotMovie}}"></scrollList>
     </view>
     <view class="cont-item">
-      <scrollList typeName="近期热门综艺节目" listArr="{{hotTvShow}}"></scrollList>
+      <scrollList typeName="近期热门综艺节目" typeRoute="hotTvShow" listArr="{{hotTvShow}}"></scrollList>
     </view>
     <view class="cont-item">
-      <scrollList typeName="畅销图书" listArr="{{hotBook}}"></scrollList>
+      <scrollList typeName="畅销图书" typeRoute="hotBook" listArr="{{hotBook}}"></scrollList>
     </view>
     <view class="cont-item">
-      <scrollList typeName="热门单曲榜" listArr="{{hotMusic}}"></scrollList>
+      <scrollList typeName="热门单曲榜" typeRoute="hotMusic" listArr="{{hotMusic}}"></scrollList>
     </view>
   </view>
 </view>

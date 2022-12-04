@@ -1,36 +1,52 @@
-const { getData } = require("../../utils/util");
-let topList = require("../../mock/top250");
-let tempList: any[] = [];
-let pageHeight = 0;
+// pages/moreMovie/index.ts
+import { getData } from "../../utils/util";
+let allData: any = {};
 let loading = false;
+let tempList: any[] = [];
 
-// pages/topList/index.ts
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    topList: [] as any,
+    listArr: [] as any,
+    type: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-    this.initData();
+  onLoad(options: any) {
+    const type: string = options.type;
+    wx.setNavigationBarTitle({ title: options.typeName });
+    this.setData({ type });
+    allData = {
+      hotShow: require("../../mock/hotShow"),
+      hotMovie: require("../../mock/hotMovie"),
+      hotTvShow: require("../../mock/hotTvShow"),
+      hotBook: require("../../mock/hotBook"),
+      hotMusic: require("../../mock/hotMusic"),
+    };
+    this.initData(allData[type].list);
   },
 
-  initData() {
-    // 数据
+  goMovieDetail(event: any) {
+    wx.navigateTo({
+      url: `/pages/movieDetail/index?type=${this.data.type}&id=${event.currentTarget.dataset.id}`,
+    });
+  },
+
+  initData(list: any[]) {
     wx.showLoading({
       title: "加载中",
     });
     setTimeout(() => {
+      tempList = getData(list);
+      tempList = [...tempList, ...tempList];
       this.setData({
-        topList: (tempList = getData(topList.list)),
+        listArr: [...tempList, ...tempList],
       });
       wx.hideLoading();
-      topList = [];
     }, 500);
   },
 
@@ -40,18 +56,12 @@ Page({
       wx.showLoading({ title: "加载中" });
       setTimeout(() => {
         this.setData({
-          topList: [...this.data.topList, ...tempList],
+          listArr: [...this.data.listArr, ...tempList],
         });
         loading = false;
         wx.hideLoading();
       }, 500);
     }
-  },
-
-  goMovie(event: any) {
-    wx.navigateTo({
-      url: `/pages/movieDetail/index?type=top250&id=${event.currentTarget.dataset.id}`,
-    });
   },
 
   /**

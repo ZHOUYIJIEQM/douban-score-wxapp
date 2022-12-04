@@ -3,6 +3,12 @@
 let timer = 0
 
 Component({
+
+  options: {
+    // 页面 wxss 样式将影响到自定义组件，但自定义组件 wxss 中指定的样式不会影响页面, 类似使用vue时的 <style scoped></style>
+    styleIsolation: 'apply-shared'
+  },
+  
   /**
    * 组件的属性列表
    */
@@ -36,7 +42,7 @@ Component({
       // 防抖
       timer && clearTimeout(timer)
       timer = setTimeout(() => {
-        if ( event.detail.scrollTop + this.data.pageHeight + 50 >= event.detail.scrollHeight ) {
+        if ( event.detail.scrollTop + this.data.pageHeight + 100 >= event.detail.scrollHeight ) {
           // console.log('load');
           this.triggerEvent("loadData", event.detail);
         }
@@ -48,7 +54,7 @@ Component({
       // 容器高度
       // 组件内需要写为 wx.createSelectorQuery().in(this)
       wx.createSelectorQuery().in(this).select('.scroll-page').boundingClientRect((rect: any) => {
-        console.log(rect.height);
+        // console.log(rect.height);
         this.data.pageHeight = rect.height
       }).exec()
     },

@@ -3,11 +3,13 @@
 // const app = getApp<IAppOption>()
 const { get } = require("../../utils/request");
 import { getData } from '../../utils/util'
-let hotShow = require('../../mock/hotShow')
-let hotMovie = require('../../mock/hotMovie')
-let hotTvShow = require('../../mock/hotTvShow')
-let hotBook = require('../../mock/hotBook')
-let hotMusic = require('../../mock/hotMusic')
+let allData: any = {
+  hotShow: require('../../mock/hotShow'),
+  hotMovie: require('../../mock/hotMovie'),
+  hotTvShow: require('../../mock/hotTvShow'),
+  hotBook: require('../../mock/hotBook'),
+  hotMusic: require('../../mock/hotMusic'),
+}
 
 Page({
   data: {
@@ -26,20 +28,15 @@ Page({
       title: '加载中',
     })
     this.setData({
-      hotShow: getData(hotShow.list),
-      hotMovie: getData(hotMovie.list),
-      hotTvShow: getData(hotTvShow.list),
-      hotBook: getData(hotBook.list),
-      hotMusic: getData(hotMusic.list)
+      hotShow: getData(allData.hotShow.list),
+      hotMovie: getData(allData.hotMovie.list),
+      hotTvShow: getData(allData.hotTvShow.list),
+      hotBook: getData(allData.hotBook.list),
+      hotMusic: getData(allData.hotMusic.list)
     })
     setTimeout(function () {
       wx.hideLoading()
-      // 把没用的数据清除掉
-      hotShow = []
-      hotMovie = []
-      hotTvShow = []
-      hotBook = []
-      hotMusic = []
+      allData = null
     }, 500)
   },
   /**

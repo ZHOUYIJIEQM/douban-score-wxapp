@@ -1,0 +1,9 @@
+.progress-box {
+  background: #f5f5f5;
+  border-radius: 4rpx;
+  overflow: hidden;
+  .progress-inner {
+    border-top-right-radius: 8rpx;
+    border-bottom-right-radius: 8rpx;
+  }
+}

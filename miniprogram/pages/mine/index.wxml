@@ -1,15 +1,21 @@
 <!--pages/mine/index.wxml-->
 <view class="mine-page">
-  <view class="top">
-    <button class="login-btn">登录</button>
+  <view class="userinfo">
+    <block wx:if="{{!hasUserInfo}}">
+      <button class="login-btn" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 登录 </button>
+    </block>
+    <block class="user-data" wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    </block>
   </view>
   <view class="mine-info">
     <view class="title-box">
       <text class="title-text">我的书影音</text>
-      <text class="login">登录查看</text>
-      <text class="iconfont icon-xiangyou"></text>
+      <text class="login" wx:if="{{!userInfo.nickName}}">登录查看</text>
+      <text class="iconfont icon-xiangyou" wx:if="{{!userInfo.nickName}}"></text>
     </view>
-    <view class="item-box">
+    <view class="item-box"  bindtap="toast">
       <image mode="widthFix" src="../../assets/mine/watch.png" />
       <view class="cont">
         <view class="top-analyze">观影分析</view>
@@ -29,7 +35,7 @@
         </view>
       </view>
     </view>
-    <view class="item-box">
+    <view class="item-box"  bindtap="toast">
       <image mode="widthFix" src="../../assets/mine/book.png" />
       <view class="cont">
         <view class="top-analyze">读书分析</view>
@@ -49,7 +55,7 @@
         </view>
       </view>
     </view>
-    <view class="item-box">
+    <view class="item-box"  bindtap="toast">
       <image mode="widthFix" src="../../assets/mine/music.png" />
       <view class="cont">
         <view class="top-analyze">观影分析</view>

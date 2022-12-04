@@ -1,15 +1,26 @@
 /* pages/mine/index.wxss */
 .mine-page {
-  .top {
+  .userinfo {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 400rpx;
     background-color: #5cc76d;
     .login-btn {
       border-radius: 100rpx;
       padding: 24rpx 0;
       font-weight: normal;
+    }
+    .userinfo-avatar {
+      width: 180rpx;
+      height: 180rpx;
+      border-radius: 50%;
+    }
+    .userinfo-nickname {
+      font-weight: bold;
+      margin-top: 20rpx;
+      color: #fff;
     }
   }
   .mine-info {

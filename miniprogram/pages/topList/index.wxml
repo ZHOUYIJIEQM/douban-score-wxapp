@@ -3,6 +3,8 @@
     class="top250-box"
     wx:for="{{topList}}"
     wx:key="index"
+    data-id="{{item.id}}"
+    bindtap="goMovie"
   >
     <view class="left">
       <image

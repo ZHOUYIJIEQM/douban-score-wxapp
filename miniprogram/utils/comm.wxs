@@ -1,0 +1,18 @@
+/**
+ * 生成的字符串
+ * @param arr 数组
+ * @param str 用来拼接的字符
+ * @returns 生成的字符串
+ */
+function join(arr, str) {
+  return arr.join(str);
+}
+
+function slice(str, len=60) {
+  return str.slice(str, len)
+}
+
+module.exports = {
+  join: join,
+  slice: slice
+};

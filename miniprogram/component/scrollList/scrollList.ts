@@ -9,10 +9,17 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    // 名称
     typeName: {
       type: String,
       value: ''
     },
+    // 路由类型
+    typeRoute: {
+      type: String,
+      value: ''
+    },
+    // 数据
     listArr: {
       type: Array,
       value: []
@@ -30,6 +37,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goMore() {
+      wx.navigateTo({
+        url: `/pages/moreMovie/index?type=${this.properties.typeRoute}&typeName=${this.properties.typeName}`
+      })
+    },
+    goMovieDetail(event: any) {
+      wx.navigateTo({
+        url: `/pages/movieDetail/index?type=${this.properties.typeRoute}&id=${event.currentTarget.dataset.id}`
+      })
+    }
   }
 })

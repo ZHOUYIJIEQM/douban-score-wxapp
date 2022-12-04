@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#f9f4f9",
+  "usingComponents": {
+    "scrollLoad": "../../component/scrollLoad/scrollLoad",
+    "starRate": "../../component/starRate/starRate",
+    "progressBar": "../../component/progressBar/progressBar"
+  }
+}

@@ -1,0 +1,132 @@
+<!--pages/movieDetail/index.wxml-->
+<wxs module="comm" src="../../utils/comm.wxs"></wxs>
+<scrollLoad bindloadData="scrollHandler">
+  <view class="movie-detail-page" wx:if="{{movieData.name}}">
+    <view class="movie-title">
+      <view class="left">
+        <image class="movie-img" src="{{movieData.movieImage}}" mode="widthFix" lazy-load="true" binderror="" bindload="" />
+      </view>
+      <view class="right">
+        <view class="movie-name">{{movieData.name}}</view>
+        <view class="movie-title-info">
+          <text>{{comm.join(movieData.title.type, ' ')}} / </text>
+          <text>{{comm.join(movieData.title.area, ' ')}} / </text>
+          <text>片长{{movieData.title.time}}分钟</text>
+        </view>
+        <view class="watch-tag">
+          <view class="like" hover-class="tag-hover">
+            <text class="iconfont icon-xiangkan"></text>
+            <text class="text">想看</text>
+          </view>
+          <view class="watched" hover-class="tag-hover">
+            <text class="iconfont icon-xingxing"></text>
+            <text class="text">看过</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="score-box" hover-class="score-hover">
+      <view class="title-bar">
+        <text>豆瓣评分TM</text>
+        <text class="iconfont icon-xiangyou"></text>
+      </view>
+      <view class="score-cont">
+        <view class="left">
+          <view class="num">{{movieData.score.num}}</view>
+          <starRate star="{{movieData.score.num}}" />
+        </view>
+        <view class="right">
+          <view 
+            class="s-item"
+            wx:for="{{movieData.score.scoreList}}"
+            wx:key="index"
+          >
+            <view class="stars">
+              <text class="iconfont icon-shoucang"
+                wx:for="{{5-index}}"
+                wx:for-index="idx"
+                wx:key="idx"
+              ></text>
+            </view>
+            <view class="bar">
+              <progressBar
+                height="12rpx"
+                backgroundColor="#ffac2d"
+                percent="{{item}}%"
+              />
+            </view>
+          </view>
+          <view class="p-num">{{movieData.score.peopleNum}}人评分</view>
+        </view>
+      </view>
+    </view>
+    <view class="intro content-item">
+      <view class="title">简介</view>
+      <view class="cont">
+        <text class="text">{{isExpand ? movieData.introduce : comm.slice(movieData.introduce)+'...'}}</text>
+        <text class="exp" bindtap="toggleExpand" wx:if="{{!isExpand}}">展开</text>
+      </view>
+    </view>
+    <view class="content-item">
+      <view class="title">影人</view>
+      <scroll-view class="scroll-box actor-box" scroll-x="true">
+        <view 
+          class="scroll-item actor-item" 
+          wx:for="{{movieData.actor}}" 
+          wx:key="index"
+          data-index="{{index}}"
+          data-type="actor"
+          bindtap="preImg"
+        >
+          <image mode="widthFix" class="scroll-img" src="{{item.avatar}}"></image>
+          <view class="actor-name eli">{{item.name}}</view>
+          <view class="actor-identity eli">{{item.identity}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="content-item">
+      <view class="title">剧照</view>
+      <scroll-view class="scroll-box photo-box" scroll-x="true">
+        <view 
+          class="scroll-item photo-item" 
+          wx:for="{{movieData.stagePhoto}}" 
+          wx:key="index"
+          data-index="{{index}}"
+          data-type="stagePhoto"
+          bindtap="preImg"
+        >
+          <image mode="widthFix" class="scroll-img" src="{{item}}"></image>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="short-comments-box">
+      <view class="comment-title">
+        <text class="title">短评</text>
+        <text class="more">
+          <text>全部{{movieData.shortComments.length}}</text>
+          <text class="iconfont icon-xiangyou"></text>
+        </text>
+      </view>
+      <view class="comment-item"
+        wx:for="{{movieData.shortComments}}"
+        wx:key="index"
+      >
+        <view class="avatar-box">
+          <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+          <view class="avatar-info">
+            <text class="user-name">{{item.user}}</text>
+            <view class="rate-box">
+              <starRate star="{{item.rate}}" />
+              <text>{{item.date}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="comment-cont">{{item.comment}}</view>
+        <view class="like">
+          <text class="iconfont icon-zan"></text>
+          <text class="like-num">{{item.like}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scrollLoad>

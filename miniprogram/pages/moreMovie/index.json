@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "scrollLoad": "../../component/scrollLoad/scrollLoad",
+    "starRate": "../../component/starRate/starRate"
+  }
+}
