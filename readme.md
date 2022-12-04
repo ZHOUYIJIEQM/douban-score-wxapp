@@ -1,5 +1,25 @@
 # 微信小程序豆瓣评分
 
+## 图片预览
+### 1. 首页
+<img style="width: 300px" src="./preImg/首页.jpg" />
+<hr />
+
+### 2. 榜单
+<img style="width: 300px" src="./preImg/榜单.jpg" />
+<hr />
+
+### 3. 我的
+<img style="width: 300px" src="./preImg/我的.jpg" />
+<hr />
+
+### 4. 更多
+<img style="width: 300px" src="./preImg/更多.jpg" />
+<hr />
+
+### 5. 电影详情页
+<img style="width: 300px" src="./preImg/电影详情页.jpg" />
+
 ## 配置小程序
 ### [全局配置](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html)
 ```json
@@ -60,6 +80,7 @@
 <br />
 3. 下载至本地 -> 提取里面的 ```iconfont.css```, 并改后缀为```wxss```, 放到静态资源目录\
 ![静态资源目录](./preImg/iconfont3.png)
+<br />
 4. 在```app.scss```里导入
 ```scss
 @import './assets/iconfont/iconfont.wxss';
@@ -259,3 +280,20 @@ this.setData({
   style="width: {{styleObj.width}}; height: {{styleObj.height}}; background-color: {{styleObj.backgroundColor}};"
 ></view>
 ```
+
+## 获取用户信息
+```html
+<button class="login-btn" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 登录 </button>
+```
+```ts
+// 微信会打开一个弹窗, 提示授权
+getUserProfile() {
+  wx.getUserProfile({
+    desc: "用于完善用户资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+    success: (res) => {
+      console.log(res)
+    },
+  });
+}
+```
+
